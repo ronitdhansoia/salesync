@@ -53,7 +53,6 @@ export const MacbookScroll = ({
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
-    enabled: isInView,
   });
 
   // Handle resize with debounce
@@ -374,7 +373,7 @@ export const Keypad = React.memo(() => {
         <KBtn className="w-8" variant="secondary">
           ⌘
         </KBtn>
-        <KBtn className="w-[13rem]"></KBtn>
+        <KBtn className="w-[13rem]"> </KBtn>
         <KBtn className="w-8" variant="secondary">
           ⌘
         </KBtn>
