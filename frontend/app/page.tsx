@@ -322,11 +322,17 @@ export default function LandingPage() {
             </div>
             <div className="relative">
               <div className={`absolute inset-0 bg-gradient-to-br ${features[activeTab as keyof typeof features].gradient} rounded-3xl blur-3xl opacity-20`} />
-              <img 
-                src={`/${activeTab}-demo.png`}
-                alt={`${features[activeTab as keyof typeof features].title} Demo`}
-                className="relative rounded-2xl shadow-2xl"
-              />
+              <div className={`relative bg-gradient-to-br ${features[activeTab as keyof typeof features].gradient} rounded-2xl shadow-2xl p-8 h-96 flex items-center justify-center`}>
+                <div className="text-center text-white">
+                  {React.createElement(features[activeTab as keyof typeof features].icon, { className: "h-20 w-20 mx-auto mb-4 opacity-80" })}
+                  <h4 className="text-2xl font-bold mb-2">{features[activeTab as keyof typeof features].title}</h4>
+                  <p className="text-white/80">Interactive Demo</p>
+                  <div className="mt-4 inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg">
+                    <Play className="h-4 w-4" />
+                    <span className="text-sm">Coming Soon</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
