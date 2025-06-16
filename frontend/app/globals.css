@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #7760F9;
+  --primary-dark: #6651E8;
+  --secondary: #111827;
+  --accent-green: #5CD670;
+  --accent-blue: #59AFFF;
+  --accent-pink: #FD6098;
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #111827;
+}
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  textarea,
+  select {
+    @apply px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7760F9] focus:border-transparent transition-all duration-200;
+  }
+  
+  button {
+    @apply transition-all duration-200;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#7760F9] hover:bg-[#6651E8] text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+  
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 text-gray-700 font-medium py-3 px-6 rounded-lg border border-gray-300 transition-all duration-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 p-6;
+  }
+  
+  .gradient-bg {
+    @apply bg-gradient-to-br from-[#7760F9] via-[#6651E8] to-[#5541D7];
+  }
+}
+
+/* Performance optimized animations */
+@keyframes float-slow {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(100px, -100px); }
+  50% { transform: translate(100px, 0); }
+  75% { transform: translate(0, -100px); }
+}
+
+@keyframes float-medium {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-100px, 100px); }
+  50% { transform: translate(-100px, 0); }
+  75% { transform: translate(0, 100px); }
+}
+
+@keyframes float-slower {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-100px, -100px); }
+  50% { transform: translate(-100px, 0); }
+  75% { transform: translate(0, -100px); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.animate-float-slow {
+  animation: float-slow 20s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: float-medium 15s ease-in-out infinite;
+}
+
+.animate-float-slower {
+  animation: float-slower 25s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+/* Performance optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Global performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+/* Prevent layout shifts */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Optimize scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* GPU acceleration for animations */
+@layer utilities {
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  .will-change-transform {
+    will-change: transform;
+  }
+  
+  .will-change-opacity {
+    will-change: opacity;
+  }
+  
+  .contain-layout {
+    contain: layout;
+  }
+  
+  .contain-paint {
+    contain: paint;
+  }
+  
+  .contain-strict {
+    contain: strict;
+  }
+}
+
+/* Optimize font rendering */
+.font-smooth {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Critical path CSS for above-the-fold content */
+.above-fold {
+  contain: layout style paint;
+}
+
+/* Optimize expensive properties */
+.expensive-shadow {
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.1));
+}
+
+/* Lazy load below-the-fold content */
+.below-fold {
+  content-visibility: auto;
+  contain-intrinsic-size: 300px;
+}

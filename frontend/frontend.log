@@ -1,0 +1,25 @@
+
+> frontend@0.1.0 dev
+> next dev --turbopack
+
+   ▲ Next.js 15.3.3 (Turbopack)
+   - Local:        http://localhost:3002
+   - Network:      http://127.0.2.2:3002
+
+ ✓ Starting...
+ ✓ Ready in 764ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 2.7s
+ GET /dashboard 200 in 2921ms
+ ✓ Compiled /contacts in 435ms
+ GET /contacts 200 in 455ms
+ ✓ Compiled /campaigns in 422ms
+ GET /campaigns 200 in 439ms
+ ✓ Compiled /_not-found/page in 295ms
+ GET /automation 404 in 309ms
+ GET /automation 404 in 35ms
+ GET /dashboard 200 in 37ms
+ ✓ Compiled /login in 431ms
+ GET /login 200 in 448ms
+ GET /dashboard 200 in 21ms
+[?25h

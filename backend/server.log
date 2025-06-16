@@ -1,0 +1,12 @@
+📧 Demo user created: demo@salesync.in / demo123
+🚀 SaleSync India API running on http://localhost:3001
+📌 Health check: http://localhost:3001/health
+📌 Demo stats: http://localhost:3001/api/demo/stats
+
+🔐 API Endpoints:
+   POST /api/auth/register
+   POST /api/auth/login
+   GET  /api/contacts (auth required)
+   POST /api/contacts (auth required)
+   GET  /api/campaigns (auth required)
+   POST /api/campaigns (auth required)
