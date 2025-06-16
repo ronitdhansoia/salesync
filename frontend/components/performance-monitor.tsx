@@ -66,8 +66,8 @@ export function PerformanceMonitor() {
     }
 
     // Monitor React renders
-    if (window.React && window.React.Profiler) {
-      console.log('🔍 React Profiler enabled - check React DevTools for render performance');
+    if (typeof window !== 'undefined' && (window as any).__REACT_DEVTOOLS_GLOBAL_HOOK__) {
+      console.log('🔍 React DevTools detected - check React DevTools for render performance');
     }
 
     // Log performance marks
