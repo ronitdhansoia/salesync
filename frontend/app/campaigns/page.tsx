@@ -12,7 +12,7 @@ import {
   Settings,
   Play,
   Pause,
-  Stop,
+  Square,
   Eye,
   Clock,
   Calendar,
