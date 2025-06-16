@@ -79,7 +79,7 @@ export function PerformanceMonitor() {
         console.log(`TCP: ${(navigation.connectEnd - navigation.connectStart).toFixed(2)}ms`);
         console.log(`Request: ${(navigation.responseStart - navigation.requestStart).toFixed(2)}ms`);
         console.log(`Response: ${(navigation.responseEnd - navigation.responseStart).toFixed(2)}ms`);
-        console.log(`DOM Processing: ${(navigation.domComplete - navigation.domLoading).toFixed(2)}ms`);
+        console.log(`DOM Processing: ${(navigation.domComplete - navigation.domInteractive).toFixed(2)}ms`);
         console.log(`Total Load Time: ${(navigation.loadEventEnd - navigation.fetchStart).toFixed(2)}ms`);
         console.groupEnd();
       }
