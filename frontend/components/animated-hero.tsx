@@ -37,7 +37,7 @@ function throttle<T extends (...args: any[]) => any>(func: T, delay: number): T 
 export function AnimatedHero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isClient, setIsClient] = useState(false);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     setIsClient(true);
