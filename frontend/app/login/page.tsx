@@ -19,12 +19,31 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
+      // Check for demo credentials first
+      if (email === "demo@salesync.in" && password === "demo123") {
+        // Create demo user data
+        const demoUser = {
+          id: "demo-user",
+          email: "demo@salesync.in",
+          name: "Demo User",
+          company: "SaleSync India",
+          role: "Sales Manager"
+        };
+        const demoToken = "demo-token-" + Date.now();
+        
+        localStorage.setItem("token", demoToken);
+        localStorage.setItem("user", JSON.stringify(demoUser));
+        router.push("/dashboard");
+        return;
+      }
+
+      // For other credentials, try API login
       const { user, token } = await authApi.login(email, password);
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
       router.push("/dashboard");
     } catch (err: any) {
-      setError(err.response?.data?.error || "Login failed");
+      setError(err.response?.data?.error || "Login failed. Try demo credentials: demo@salesync.in / demo123");
     } finally {
       setLoading(false);
     }
