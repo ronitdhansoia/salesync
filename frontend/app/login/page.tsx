@@ -96,7 +96,7 @@ export default function LoginPage() {
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="pl-10 block w-full"
+                      className="pl-10 block w-full px-3 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#7760F9] focus:border-[#7760F9] bg-white text-gray-900"
                       placeholder="you@company.com"
                     />
                   </div>
@@ -121,7 +121,7 @@ export default function LoginPage() {
                       required
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="pl-10 block w-full"
+                      className="pl-10 block w-full px-3 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#7760F9] focus:border-[#7760F9] bg-white text-gray-900"
                       placeholder="Enter your password"
                     />
                   </div>
