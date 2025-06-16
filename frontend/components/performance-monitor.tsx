@@ -30,8 +30,11 @@ export function PerformanceMonitor() {
         // FID (First Input Delay)
         const fidObserver = new PerformanceObserver((list) => {
           for (const entry of list.getEntries()) {
-            const delay = entry.processingStart - entry.startTime;
-            console.log(`⚡ FID: ${delay.toFixed(2)}ms`);
+            const fidEntry = entry as any; // Cast to handle processingStart property
+            if (fidEntry.processingStart) {
+              const delay = fidEntry.processingStart - entry.startTime;
+              console.log(`⚡ FID: ${delay.toFixed(2)}ms`);
+            }
           }
         });
         fidObserver.observe({ type: 'first-input', buffered: true });
@@ -40,8 +43,9 @@ export function PerformanceMonitor() {
         let clsValue = 0;
         const clsObserver = new PerformanceObserver((list) => {
           for (const entry of list.getEntries()) {
-            if (!entry.hadRecentInput) {
-              clsValue += entry.value;
+            const clsEntry = entry as any; // Cast to handle CLS-specific properties
+            if (!clsEntry.hadRecentInput && clsEntry.value !== undefined) {
+              clsValue += clsEntry.value;
               console.log(`⚡ CLS: ${clsValue.toFixed(4)}`);
             }
           }
