@@ -620,7 +620,12 @@ export default function SettingsPage() {
                             <p className="font-medium text-gray-900 capitalize">{platform}</p>
                             {config.connected ? (
                               <p className="text-sm text-gray-600">
-                                Connected: {config.account || config.number || config.provider || config.system}
+                                Connected: {
+                                  'account' in config ? config.account :
+                                  'number' in config ? config.number :
+                                  'provider' in config ? config.provider :
+                                  'system' in config ? config.system : ''
+                                }
                               </p>
                             ) : (
                               <p className="text-sm text-gray-600">Not connected</p>
