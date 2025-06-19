@@ -71,7 +71,7 @@ export function WaitlistPricing() {
   ];
 
   return (
-    <section id="pricing" className="py-24 bg-white dark:bg-gray-900">
+    <section id="pricing" className="py-24 bg-white dark:bg-black">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <motion.div
@@ -99,13 +99,13 @@ export function WaitlistPricing() {
               viewport={{ once: true }}
               className={`relative rounded-2xl p-6 border transition-all duration-300 flex flex-col h-full ${
                 plan.popular
-                  ? "border-gray-900 dark:border-white bg-gray-50 dark:bg-black scale-105"
-                  : "border-gray-200 dark:border-gray-900 bg-white dark:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-700"
+                  ? "border-gray-900 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 scale-105"
+                  : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600"
               }`}
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-4 py-1 rounded-full text-sm font-medium flex items-center space-x-1">
+                  <div className="bg-gray-900 dark:bg-gray-700 text-white dark:text-white px-4 py-1 rounded-full text-sm font-medium flex items-center space-x-1">
                     <Star className="h-3 w-3" />
                     <span>Most Popular</span>
                   </div>
@@ -139,10 +139,11 @@ export function WaitlistPricing() {
               </ul>
 
               <button
+                onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
                 className={`w-full py-3 px-4 rounded-xl font-medium transition-all duration-200 ${
                   plan.popular
-                    ? "bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100"
-                    : "border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-900"
+                    ? "bg-gray-900 dark:bg-gray-600 text-white dark:text-white hover:bg-gray-800 dark:hover:bg-gray-500"
+                    : "border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-700"
                 }`}
               >
                 Join Waitlist

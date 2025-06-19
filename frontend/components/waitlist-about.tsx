@@ -31,7 +31,7 @@ export function WaitlistAbout() {
   ];
 
   return (
-    <section id="about" className="py-24 bg-gray-50 dark:bg-gray-950">
+    <section id="about" className="py-24 bg-gray-50 dark:bg-black">
       <div className="max-w-7xl mx-auto px-6">
         {/* Company Story */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
