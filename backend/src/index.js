@@ -13,6 +13,7 @@ const analyticsRoutes = require('./routes/analytics');
 const paymentRoutes = require('./routes/payments');
 const automationRoutes = require('./routes/automation');
 const complianceRoutes = require('./routes/compliance');
+const waitlistRoutes = require('./routes/waitlist');
 
 const { sequelize } = require('./models');
 const { logger } = require('./utils/logger');
@@ -53,6 +54,7 @@ app.use('/api/analytics', analyticsRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/automation', automationRoutes);
 app.use('/api/compliance', complianceRoutes);
+app.use('/api/waitlist', waitlistRoutes);
 
 // Health check
 app.get('/health', (req, res) => {

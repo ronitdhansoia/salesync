@@ -28,6 +28,7 @@ db.Template = require('./Template')(sequelize, Sequelize);
 db.Analytics = require('./Analytics')(sequelize, Sequelize);
 db.Subscription = require('./Subscription')(sequelize, Sequelize);
 db.Payment = require('./Payment')(sequelize, Sequelize);
+db.Waitlist = require('./Waitlist')(sequelize, Sequelize);
 
 // Define associations
 db.User.hasMany(db.Contact, { foreignKey: 'userId' });
