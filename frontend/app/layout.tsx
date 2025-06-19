@@ -2,12 +2,19 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { PerformanceMonitor } from "@/components/performance-monitor";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "SaleSync India - Sales Automation Platform",
-  description: "WhatsApp-first sales automation platform for Indian B2B market",
+  title: "RavenSales - AI-Powered Sales Automation Platform",
+  description: "Global B2B sales automation platform with LinkedIn, Email, and multi-channel outreach at ravensales.ai",
+  icons: {
+    icon: [
+      { url: "/ravensales-logo.jpeg" },
+      { url: "/favicon.jpeg" },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -18,8 +25,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
-        <PerformanceMonitor />
-        {children}
+        <ThemeProvider>
+          <PerformanceMonitor />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

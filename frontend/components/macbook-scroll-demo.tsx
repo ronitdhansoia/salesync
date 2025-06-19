@@ -6,7 +6,7 @@ import { FittedDashboard } from "./fitted-dashboard";
 
 export function MacbookScrollDemo() {
   return (
-    <div className="overflow-hidden bg-gray-50 w-full">
+    <div className="overflow-hidden bg-white dark:bg-black w-full transition-all duration-500 ease-in-out">
       <MacbookScroll
         title={
           <div className="max-w-4xl mx-auto">

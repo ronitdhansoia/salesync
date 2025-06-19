@@ -182,4 +182,23 @@ export const statsApi = {
   },
 };
 
+export const waitlistApi = {
+  addToWaitlist: async (email: string, source: string = 'website') => {
+    const response = await api.post('/api/waitlist', { email, source });
+    return response.data;
+  },
+  getStats: async () => {
+    const response = await api.get('/api/waitlist/stats');
+    return response.data;
+  },
+  getEntries: async (params?: { page?: number; limit?: number; status?: string; source?: string }) => {
+    const response = await api.get('/api/waitlist/entries', { params });
+    return response.data;
+  },
+  updateStatus: async (id: string, status: string) => {
+    const response = await api.put(`/api/waitlist/${id}/status`, { status });
+    return response.data;
+  },
+};
+
 export default api;

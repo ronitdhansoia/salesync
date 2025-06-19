@@ -77,7 +77,7 @@ export function AnimatedFeatures() {
   ];
 
   return (
-    <section className="py-20 px-6 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-20 px-6 bg-white dark:bg-black transition-all duration-500 ease-in-out">
       <div className="container mx-auto">
         {/* Header */}
         <motion.div
@@ -87,11 +87,11 @@ export function AnimatedFeatures() {
           transition={{ duration: 0.4, ease: "easeOut" }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Everything You Need to
             <span className="bg-gradient-to-r from-[#7760F9] to-[#6651E8] bg-clip-text text-transparent"> Scale Your Sales</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             One platform, multiple channels. Automate your entire B2B sales process with AI-powered tools designed for the Indian market.
           </p>
         </motion.div>
@@ -106,20 +106,20 @@ export function AnimatedFeatures() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.05, duration: 0.3, ease: "easeOut" }}
               onClick={() => handleFeatureClick(index)}
-              className={`relative p-6 rounded-2xl text-left transition-all duration-200 will-change-transform ${
+              className={`relative p-6 rounded-2xl text-left transition-all duration-300 ease-in-out will-change-transform ${
                 activeFeature === index
-                  ? "bg-white shadow-xl scale-105 z-10"
-                  : "bg-gray-50 hover:bg-white hover:shadow-lg hover:scale-[1.02]"
+                  ? "bg-white dark:bg-gray-900 shadow-xl scale-105 z-10"
+                  : "bg-gray-50 dark:bg-gray-900 hover:bg-white dark:hover:bg-gray-800 hover:shadow-lg hover:scale-[1.02] border border-transparent dark:border-gray-800"
               }`}
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} rounded-2xl opacity-10`} />
               {React.createElement(feature.icon, {
                 className: `h-8 w-8 mb-3 ${
-                  activeFeature === index ? "text-[#7760F9]" : "text-gray-600"
+                  activeFeature === index ? "text-[#7760F9]" : "text-gray-600 dark:text-gray-400"
                 }`
               })}
-              <h3 className="font-semibold text-gray-900 mb-1">{feature.title}</h3>
-              <p className="text-sm text-gray-600">{feature.description}</p>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-1">{feature.title}</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">{feature.description}</p>
             </motion.button>
           ))}
         </div>
@@ -132,7 +132,7 @@ export function AnimatedFeatures() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="bg-white rounded-3xl shadow-xl overflow-hidden will-change-transform"
+            className="bg-white dark:bg-black rounded-3xl shadow-xl dark:shadow-gray-900/50 overflow-hidden will-change-transform border border-transparent dark:border-gray-900"
           >
             <div className="grid lg:grid-cols-2">
               {/* Left side - Details */}
@@ -141,11 +141,11 @@ export function AnimatedFeatures() {
                   {React.createElement(features[activeFeature].icon, { className: "h-8 w-8 text-white" })}
                 </div>
                 
-                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
                   {features[activeFeature].title}
                 </h3>
                 
-                <p className="text-lg text-gray-600 mb-8">
+                <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
                   {features[activeFeature].description}
                 </p>
 
@@ -158,13 +158,13 @@ export function AnimatedFeatures() {
                       transition={{ delay: index * 0.05, duration: 0.2, ease: "easeOut" }}
                       className="flex items-start gap-3"
                     >
-                      <CheckCircle2 className="h-6 w-6 text-green-600 mt-0.5" />
-                      <span className="text-gray-700">{point}</span>
+                      <CheckCircle2 className="h-6 w-6 text-green-600 dark:text-green-400 mt-0.5" />
+                      <span className="text-gray-700 dark:text-gray-300">{point}</span>
                     </motion.li>
                   ))}
                 </ul>
 
-                <button className="inline-flex items-center gap-2 bg-gradient-to-r from-[#7760F9] to-[#6651E8] text-white px-6 py-3 rounded-xl font-medium hover:shadow-lg transition-all">
+                <button className="inline-flex items-center gap-2 bg-gradient-to-r from-[#7760F9] to-[#6651E8] text-white px-6 py-3 rounded-xl font-medium hover:shadow-lg transition-all duration-300 ease-in-out">
                   Learn More
                   <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -175,7 +175,7 @@ export function AnimatedFeatures() {
               {/* Right side - Visual */}
               <div className={`relative bg-gradient-to-br ${features[activeFeature].color} p-12`}>
                 <div className="absolute inset-0 bg-black opacity-10" />
-                <div className="relative bg-white rounded-2xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-200 ease-out will-change-transform">
+                <div className="relative bg-white dark:bg-gray-900 rounded-2xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-all duration-300 ease-out will-change-transform">
                   {/* Demo UI based on feature */}
                   {activeFeature === 0 && <LinkedInDemo />}
                   {activeFeature === 1 && <WhatsAppDemo />}
