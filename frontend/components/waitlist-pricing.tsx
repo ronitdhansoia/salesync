@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Check, Star } from "lucide-react";
+import { Check } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 export function WaitlistPricing() {
@@ -107,20 +107,8 @@ export function WaitlistPricing() {
                 proximity={64}
                 inactiveZone={0.01}
               />
-              <div className={`relative flex h-full flex-col rounded-2xl md:rounded-3xl p-6 transition-all duration-300 ${
-                plan.popular
-                  ? "bg-black dark:bg-black dark:shadow-[0px_0px_27px_0px_#2D2D2D] scale-105"
-                  : "bg-black dark:bg-black dark:shadow-[0px_0px_27px_0px_#2D2D2D] hover:shadow-[0px_0px_35px_0px_#2D2D2D]"
-              }`}
+              <div className="relative flex h-full flex-col rounded-2xl md:rounded-3xl p-6 transition-all duration-300 bg-black dark:bg-black dark:shadow-[0px_0px_27px_0px_#2D2D2D] hover:shadow-[0px_0px_35px_0px_#2D2D2D]"
             >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                    <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium flex items-center space-x-1">
-                      <Star className="h-3 w-3" />
-                      <span>Most Popular</span>
-                    </div>
-                  </div>
-                )}
 
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-semibold text-white mb-2">
@@ -150,11 +138,7 @@ export function WaitlistPricing() {
 
                 <button
                   onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
-                  className={`w-full py-3 px-4 rounded-xl font-medium transition-all duration-200 ${
-                    plan.popular
-                      ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700"
-                      : "border border-gray-600 text-white hover:bg-gray-800"
-                  }`}
+                  className="w-full py-3 px-4 rounded-xl font-medium transition-all duration-200 border border-gray-600 text-white hover:bg-gray-800"
                 >
                   Join Waitlist
                 </button>
