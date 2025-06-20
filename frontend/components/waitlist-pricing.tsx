@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Check, Star } from "lucide-react";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 export function WaitlistPricing() {
   const plans = [
@@ -97,57 +98,67 @@ export function WaitlistPricing() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`relative rounded-2xl p-6 border transition-all duration-300 flex flex-col h-full ${
+              className="relative h-full rounded-2xl border border-gray-200/60 dark:border-gray-700/60 p-2 md:rounded-3xl md:p-3"
+            >
+              <GlowingEffect
+                spread={40}
+                glow={true}
+                disabled={false}
+                proximity={64}
+                inactiveZone={0.01}
+              />
+              <div className={`relative flex h-full flex-col rounded-2xl md:rounded-3xl p-6 transition-all duration-300 ${
                 plan.popular
-                  ? "border-gray-900 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 scale-105"
-                  : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600"
+                  ? "bg-black dark:bg-black dark:shadow-[0px_0px_27px_0px_#2D2D2D] scale-105"
+                  : "bg-black dark:bg-black dark:shadow-[0px_0px_27px_0px_#2D2D2D] hover:shadow-[0px_0px_35px_0px_#2D2D2D]"
               }`}
             >
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-gray-900 dark:bg-gray-700 text-white dark:text-white px-4 py-1 rounded-full text-sm font-medium flex items-center space-x-1">
-                    <Star className="h-3 w-3" />
-                    <span>Most Popular</span>
+                {plan.popular && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                    <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium flex items-center space-x-1">
+                      <Star className="h-3 w-3" />
+                      <span>Most Popular</span>
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
-                  {plan.name}
-                </h3>
-                <div className="flex items-baseline justify-center mb-2">
-                  <span className="text-4xl font-light text-gray-900 dark:text-white">
-                    {plan.price}
-                  </span>
-                  <span className="text-gray-500 dark:text-gray-400 ml-1">
-                    {plan.period}
-                  </span>
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-semibold text-white mb-2">
+                    {plan.name}
+                  </h3>
+                  <div className="flex items-baseline justify-center mb-2">
+                    <span className="text-4xl font-light text-white">
+                      {plan.price}
+                    </span>
+                    <span className="text-gray-400 ml-1">
+                      {plan.period}
+                    </span>
+                  </div>
+                  <p className="text-gray-400 text-sm">
+                    {plan.description}
+                  </p>
                 </div>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  {plan.description}
-                </p>
+
+                <ul className="space-y-3 mb-6 flex-grow">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-start space-x-3">
+                      <Check className="h-5 w-5 text-white flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-300">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <button
+                  onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+                  className={`w-full py-3 px-4 rounded-xl font-medium transition-all duration-200 ${
+                    plan.popular
+                      ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700"
+                      : "border border-gray-600 text-white hover:bg-gray-800"
+                  }`}
+                >
+                  Join Waitlist
+                </button>
               </div>
-
-              <ul className="space-y-3 mb-6 flex-grow">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start space-x-3">
-                    <Check className="h-5 w-5 text-gray-900 dark:text-white flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-600 dark:text-gray-400">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <button
-                onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
-                className={`w-full py-3 px-4 rounded-xl font-medium transition-all duration-200 ${
-                  plan.popular
-                    ? "bg-gray-900 dark:bg-gray-600 text-white dark:text-white hover:bg-gray-800 dark:hover:bg-gray-500"
-                    : "border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-700"
-                }`}
-              >
-                Join Waitlist
-              </button>
             </motion.div>
           ))}
         </div>
